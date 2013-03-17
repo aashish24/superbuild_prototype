@@ -19,6 +19,20 @@ mark_as_advanced(DART_TESTING_TIMEOUT)
 # Find necessary packages
 #-----------------------------------------------------------------------------
 find_package(Git REQUIRED)
+set(OSMESA_INCLUDE_DIR "" CACHE PATH "Path to MESA include directory")
+if ("${OSMESA_INCLUDE_DIR}" STREQUAL "" OR NOT EXISTS "${OSMESA_INCLUDE_DIR}")
+  message(FATAL_ERROR "OSMESA_INCLUDE_DIR needs to be set to MESA include directory")
+endif()
+
+set(OSMESA_GL_LIBRARY "" CACHE FILEPATH "File path to MESA GL library")
+if ("${OSMESA_GL_LIBRARY}" STREQUAL "" OR NOT EXISTS "${OSMESA_GL_LIBRARY}")
+  message(FATAL_ERROR "OSMESA_GL_LIBRARY needs to be set to MESA GL library")
+endif()
+
+set(OSMESA_GLU_LIBRARY "" CACHE FILEPATH "File path to MESA GLU library")
+if ("${OSMESA_GLU_LIBRARY}" STREQUAL "" OR NOT EXISTS "${OSMESA_GLU_LIBRARY}")
+  message(FATAL_ERROR "OSMESA_GLU_LIBRARY needs to be set to MESA GLU library")
+endif()
 
 # Set lanl superbuild arguments
 #-----------------------------------------------------------------------------
