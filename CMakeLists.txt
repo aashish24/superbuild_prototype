@@ -59,5 +59,5 @@ set(lanl_superbuild_cmake
 # Include external projects
 #-----------------------------------------------------------------------------
 include(external_paraview)
-#include(external_subh)
+include(external_subh)
 
