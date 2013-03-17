@@ -1,0 +1,5 @@
+EXECUTE_PROCESS(
+  COMMAND make
+  WORKING_DIRECTORY "@subh_source@"
+)
+

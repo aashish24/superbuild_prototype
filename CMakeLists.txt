@@ -19,7 +19,6 @@ mark_as_advanced(DART_TESTING_TIMEOUT)
 # Find necessary packages
 #-----------------------------------------------------------------------------
 find_package(Git REQUIRED)
-find_package(OSMesa REQUIRED)
 
 # Set lanl superbuild arguments
 #-----------------------------------------------------------------------------
