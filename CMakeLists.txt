@@ -18,16 +18,16 @@ mark_as_advanced(DART_TESTING_TIMEOUT)
 
 # Find necessary packages
 #-----------------------------------------------------------------------------
-# Qt is required
-find_package(Qt 4.7 REQUIRED)
-include(${QT_USE_FILE})
+find_package(Git REQUIRED)
+find_package(OSMesa REQUIRED)
 
 # Set lanl superbuild arguments
 #-----------------------------------------------------------------------------
 
 # Set superbuild build directory
-set(lanl_superbuild_build_dir "${CMAKE_CURRENT_BINARY_DIR}/superbuild_build")
-set(lanl_superbuild_install_dir "${CMAKE_CURRENT_BINARY_DIR}/superbuild_install")
+set(lanl_cmake_dir "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
+set(lanl_superbuild_build_dir "${CMAKE_CURRENT_BINARY_DIR}/lanl_build")
+set(lanl_superbuild_install_dir "${CMAKE_CURRENT_BINARY_DIR}/lanl_install")
 
 # Set compiler flags
 set(lanl_superbuild_compiler
@@ -51,7 +51,6 @@ option(lanl_superbuild_shared  "Build all components as shared libraries" OFF)
 # Composite all options into one variable
 set(lanl_superbuild_cmake
   ${lanl_superbuild_compiler}
-  -DQT_QMAKE_EXECUTABLE:FILEPATH=${QT_QMAKE_EXECUTABLE}
   -DDBUILD_SHARED_LIBS:BOOL=${lanl_superbuild_shared}
   -DCMAKE_INSTALL_PREFIX:PATH=${lanl_superbuild_install_dir}
 )
